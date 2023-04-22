@@ -13,7 +13,7 @@ app.use(cors());
 const mailgun = new Mailgun(formData);
 const client = mailgun.client({
   username: "Floriane",
-  key: MAILGUN_API_KEY,
+  key: process.env.MAILGUN_API_KEY,
 });
 
 app.get("/", (req, res) => {
@@ -34,7 +34,7 @@ app.post("/form", async (req, res) => {
     };
 
     const response = await client.messages.create(
-      MAILGUN_DOMAIN,
+      process.env.MAILGUN_DOMAIN,
       messageData
     ); /* VOTRE NOM DE DOMAINE SE TERMINANT PAR `.mailgun.org` */
 
