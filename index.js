@@ -45,6 +45,6 @@ app.post("/form", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(pocess.env.PORT, () => {
   console.log("server is listening");
 });
